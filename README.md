@@ -1,7 +1,9 @@
-# Example Docker-based Python3 (+ pandas, numpy, etc) Script
+# Docker + Python (w/ pandas, numpy, etc) Example
 
-This is a small example illustrating a Docker-based Python script
+This is a small example illustrating a Docker-based Python application
 that loads/updates/persists a state file.
+
+The example merely appends a timestamp and a random integer to a persisted pandas dataframe on every run.
 
 ## Installation
 
@@ -66,7 +68,7 @@ docker run -v /home/bruce/code/github/bruce/docker_pydata_example/data:/app/data
 
 See:
 
-- The `Dockerfile`, a whopping three lines that defines the base image (`FROM`), what files to add to the image `ADD`, and what default command to execute (`CMD`).
+- The `Dockerfile`, a whopping three lines that defines the base image (`FROM`), what files to add to the image (`ADD`), and what default command to execute (`CMD`).
 - The application itself, under `example/` (it's a pretty simple application, more functional then elegant or well-structured!)
 - The `Makefile`, which defines how `make` builds the image and runs the container (creating and mounting a data directory, `data/`, as persistent storage across runs)
 - After running it, the `data/` directory, containing `state.pkl`.
@@ -79,4 +81,4 @@ You can clear the data with `make`:
 $ make clobber
 ```
 
-Then your uses of `make run` will start from a clean slate.
+Then your uses of `make run` will start from a clean slate (an empty dataframe, that is).

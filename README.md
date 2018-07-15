@@ -73,9 +73,19 @@ See:
 - The `Makefile`, which defines how `make` builds the image and runs the container (creating and mounting a data directory, `data/`, as persistent storage across runs)
 - After running it, the `data/` directory, containing `state.pkl`.
 
-## Resetting
+## Modifying it
 
-You can clear the data with `make`:
+Change the application (`example/`) however you'd like, then just run:
+
+``` shell
+$ make
+```
+
+This will run the default task (`all`) which does a `make build` and `make run` in quick succession.
+
+## Resetting the data
+
+You can clear the data with one command:
 
 ``` shell
 $ make clobber
